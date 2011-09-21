@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>onAvailable Demo</title>
+	<link rel="stylesheet" href="demo.css" media="screen" />
+	<script src="../Source/onAvailable.js"></script>
+	<script>
+		onAvailable('foo', function(){
+			console.log('#foo is available');
+			// #foo is available
+			this.style.background = 'green';
+		});
+
+		onAvailable('foo2', function(){
+			console.log('#foo2 and #foobar are available');
+			// #foo2 and #foobar are available
+			document.getElementById('bar').addEventListener('click', function(){
+				alert('FooBar');
+			});
+		}, true);
+	</script>
+</head>
+<body>
+	<h1>onAvailable Demo</h1>
+	<div id="container">
+<!-- Example 1 -->
+		<div class="block">
+			<h2>Example 1</h2>
+			<div id="foo">
+				My Content
+			</div>
+		</div>
+<!-- Example 2 -->
+		<div class="block">
+			<h2>Example 2</h2>
+			<div id="foo2">
+				<button id="bar">FooBar</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
